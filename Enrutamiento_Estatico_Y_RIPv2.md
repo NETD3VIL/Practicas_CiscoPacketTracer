@@ -1,0 +1,8 @@
+Laboratorio 2 Implementación de Rutas Estáticas y RIPv2
+
+Configurar y verificar rutas estáticas para lograr conectividad en una red multi-router.
+Implementar el protocolo de enrutamiento dinámico RIPv2 para anunciar y aprender rutas automáticamente.
+Analizar y comparar los resultados en la tabla de enrutamiento de ambos métodos.
+Verificar la conectividad de extremo a extremo con ping y traceroute.
+
+![image_Alt](https://github.com/NETD3VIL/Practicas_CiscoPacketTracer/blob/dc4f06460201eff124cebec6756c5aad54848ab0/topologia_ping1.png)
