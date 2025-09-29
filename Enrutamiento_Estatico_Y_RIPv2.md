@@ -37,5 +37,24 @@ Utilizando el comando show ip route con enrutamiento estatico<p>
   
 ![image_Alt](https://github.com/NETD3VIL/Practicas_CiscoPacketTracer/blob/7664d52ea79bb2abcb3aeea0a6995b0b2e3a0f84/ip_route_estatico.png)<p>
 
+Utilizando el comando show ip route con enrutamiento RIPv2<p>
+  
+![image_Alt](https://github.com/NETD3VIL/Practicas_CiscoPacketTracer/blob/bcd57e3451faa0a57bcb51de49ad51816dee2c67/ip_route_RIPv2.png)<p>
+
+Preguntas de análisis
+
+Al ejecutar show ip route en R1 después de la Parte 2, ¿qué indica el código S y qué significa la notación [1/0]?
+R=En la configuración estática S indica que dicho ruteo fue configurado de manera manual con ip route y la notación [0/1] es [Distancia administrativa/Métrica] donde la AD indica la confiabilidad de la ruta y entre más bajo el número la ruta es más confiable, en este caso es 1 por lo que quiere decir que es muy confiable y el otro parámetro que es “Métrica” indica que el costo fue 0 y de hecho en ruteos manuales con ip route siempre será 0 pero por ejemplo con RIP indica los hops o saltos entre cada router, con RIP se supone que debe alcanzar su objetivo por la ruta de menor costo (menos HOPS) por cuestiones de optimización o eficiencia.
+
+Después de configurar RIPv2 en la Parte 3, ¿qué código de letra identifica las rutas aprendidas dinámicamente? ¿Qué significa la métrica (el segundo número en [120/X]) para una ruta RIP?
+R= La letra que identifica las rutas aprendidas es R y la Métrica lo que indica son los HOPS o saltos entre routers en este caso si ejecutamos show ip route desde el router R1 indica que para llegar al router R2 solo realiza 1 salto y para llegar al R3 realiza 2 saltos porque tiene que pasar primero por R2.
+
+Compara la configuración manual de la Parte 2 con la automática de la Parte 3. ¿Qué método consideras más escalable (fácil de administrar si se añaden más redes) y por qué?
+R=El ruteo manual con ip route definitivamente no debe utilizarse en redes grandes porque una persona tardaría mucho realizando la configuración en cada router y no es para nada escalable, sin embargo RIPv2 en cuestión de minutos puedes implementarlo solo con unos cuantos comandos y los routers se encargan de dar a conocer sus networks, creo que la mayor ventaja es que con RIPv2 sería que puedes modificar la red sin realizar cambios en el ruteo y con ip route si tendrias que hacer cambios si agregas o retiras routers.
+
+Conclusión
+Fue muy interesante esta práctica ya que nos hace conocer las formas manuales y las formas más eficientes para realizar una conexión correcta entre routers, con RIPv2 bajamos considerablemente el nivel de errores humanos que se podrían cometer al hacerlo de manera manual, disminuimos el tiempo de configuración y también si existen modificaciones en la red de routers conectados RIPv2 ajusta la red y  no se pierde la comunicación mientras exista la conexión física entre ellos. Las múltiples ventajas que tiene RIPv2 es que tiene también un método de autenticación simple y siempre busca las rutas más óptimas (menos HOPS) para llevar a cabo la transmisión de datos.
+
+
 
 
